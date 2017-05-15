@@ -1,0 +1,39 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kube-demo-sw-deployment
+spec:
+  replicas: 3
+  revisionHistoryLimit: 1
+  template:
+    metadata:
+      labels:
+        app: kube-demo-sw
+    spec:
+      containers:
+      - name: kube-demo-sw
+        image: registry.ng.bluemix.net/antonal/kube-demo-sw:latest
+        env:
+          - name: VCAP_APPLICATION
+            valueFrom:
+              secretKeyRef:
+                name: kube-demo-sw-secret
+                key: VCAP_APPLICATION
+          - name: VCAP_SERVICES
+            valueFrom:
+              secretKeyRef:
+                name: kube-demo-sw-secret
+                key: VCAP_SERVICES
+          - name: WATSON_SPEECH_TO_TEXT
+            valueFrom:
+              secretKeyRef:
+                name: kube-demo-sw-secret
+                key: WATSON_SPEECH_TO_TEXT
+          - name: WATSON_VISUAL_RECOGNITION
+            valueFrom:
+              secretKeyRef:
+                name: kube-demo-sw-secret
+                key: WATSON_VISUAL_RECOGNITION
+        ports:
+        - containerPort: 8080
