@@ -21,7 +21,7 @@ echo "Deploy pods"
 
 echo "bx login -a $CF_TARGET_URL"
 
-if [ -z "$API_KEY"]; then
+if [ -z "$API_KEY" ]; then
   bx login -a "$CF_TARGET_URL" -u "$BLUEMIX_USER" -p "$BLUEMIX_PASSWORD" -c "$BLUEMIX_ACCOUNT" -o "$CF_ORG" -s "$CF_SPACE"
 else
   bx login -a "$CF_TARGET_URL" --apikey "$API_KEY" -o "$CF_ORG" -s "$CF_SPACE"
