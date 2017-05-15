@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: kube-demo-sw
-        image: registry.ng.bluemix.net/antonal/kube-demo-sw:latest
+        image: registry.ng.bluemix.net/sjweaver/kube-demo-sw:latest
         env:
           - name: VCAP_APPLICATION
             valueFrom:
