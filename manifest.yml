@@ -10,6 +10,8 @@ applications:
   buildpack: sdk-for-nodejs
   command: npm start
   services:
+    - watson-visual-recognition-01
+    - watson-speech-to-text-01
     - Object Storage-nx
     - Cloudant NoSQL DB-6i
   env:
