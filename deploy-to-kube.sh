@@ -1,7 +1,8 @@
 rm -rf node_modules
+bx ic init
 bx ic build --tag registry.ng.bluemix.net/antonal/kube-demo-sw:latest .
 bx cr login
-bx ic push registry.ng.bluemix.net/antonal/kube-demo-sw:latest
+docker push registry.ng.bluemix.net/antonal/kube-demo-sw:latest
 kubectl create -f kube-all-in-one.yaml
 kubectl get service kube-demo-sw-service
 kubectl get nodes
