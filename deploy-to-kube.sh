@@ -1,6 +1,8 @@
 rm -rf node_modules
+export DOCKER_HOST=tcp://containers-api.ng.bluemix.net:8443
+export DOCKER_CERT_PATH=/home/pipeline/.ice/certs/containers-api.ng.bluemix.net/8d42a0bb-3329-43f5-bc62-139f29de7c5c 	export DOCKER_TLS_VERIFY=1
 bx ic init
-bx ic build --tag registry.ng.bluemix.net/antonal/kube-demo-sw:latest .
+docker build --tag registry.ng.bluemix.net/antonal/kube-demo-sw:latest .
 bx cr login
 docker push registry.ng.bluemix.net/antonal/kube-demo-sw:latest
 kubectl create -f kube-all-in-one.yaml

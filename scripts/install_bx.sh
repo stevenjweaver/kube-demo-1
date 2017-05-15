@@ -23,6 +23,7 @@ bx plugin install container-registry -r Bluemix
 echo "Install the IBM Container service"
 bx plugin install IBM-containers -r Bluemix
 
+#Install Kubernetes CLI
 echo "Install kubectl"
 wget --quiet --output-document=/tmp/Bluemix_CLI/bin/kubectl  https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 chmod +x /tmp/Bluemix_CLI/bin/kubectl
